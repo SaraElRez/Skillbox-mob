@@ -5,6 +5,7 @@ import 'package:skillbox/models/notification.dart';
 import 'package:skillbox/models/user.dart';
 import '../services/notification_service.dart';
 import '../services/pusher_service.dart';
+import '../services/popup_service.dart';
 import '../services/api_service.dart';
 import 'user_provider.dart';
 
@@ -40,6 +41,9 @@ class NotificationProvider extends ChangeNotifier {
       
       // Show toast
       _showNotificationToast(notification);
+
+      // Also show popup using global navigator key (toast-like)
+      PopupService.showPopup(notification);
 
        // If approval notification, refresh user to get new role.
        if (notification.type.toLowerCase() == 'accept') {

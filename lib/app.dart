@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skillbox/widgets/launcher.dart';
+import 'package:skillbox/services/popup_service.dart';
 import 'theme/app_theme.dart';
 import 'providers/user_provider.dart';
 import 'providers/notification_provider.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        navigatorKey: PopupService.navigatorKey,
         title: 'SkillBox',
         theme: AppTheme.lightTheme,    // Light Theme
         darkTheme: AppTheme.darkTheme, // Dark Theme
